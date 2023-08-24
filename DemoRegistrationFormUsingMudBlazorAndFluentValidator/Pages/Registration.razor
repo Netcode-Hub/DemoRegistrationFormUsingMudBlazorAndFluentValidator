@@ -1,0 +1,34 @@
+﻿@page "/register"
+
+@using System.Text.RegularExpressions
+@using System.ComponentModel.DataAnnotations
+@using DemoRegistrationFormUsingMudBlazorAndFluentValidator.Models;
+
+<div class="row">
+    <div class="ma-6 d-flex justify-center">
+       
+        <MudCard Width="500px">
+            <MudChip Color="Color.Primary">Account Registration Page</MudChip>
+            <MudForm Model="model" Validation="registrationModelValidation.ValidateValue">
+
+                <MudCardContent>
+                    <MudTextField @bind-Value="model.Name" For="@(()=> model.Name)" Immediate="true" Label="Fullname"></MudTextField>
+                    <MudTextField @bind-Value="model.Email" For="@(()=> model.Email)" Immediate="true" Label="Email Address" InputType="InputType.Email"></MudTextField>
+                    <MudTextField @bind-Value="model.PhoneNumber" For="@(()=> model.PhoneNumber)" Immediate="true" Label="Contact Number" InputType="InputType.Telephone"></MudTextField>
+                    <MudTextField @bind-Value="model.Password" For="@(()=> model.Password)" Immediate="true" Label="Password" InputType="InputType.Password"></MudTextField>
+                    <MudTextField @bind-Value="model.ConfirmPassword" For="@(()=> model.ConfirmPassword)" Immediate="true" Label="Confirm Password" InputType="InputType.Password"></MudTextField>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Secondary" Class="ml-auto" ButtonType="ButtonType.Submit">Register</MudButton>
+                </MudCardActions>
+            </MudForm>
+        </MudCard>
+    </div>
+</div>
+
+@code {
+    RegistrationModel model = new();
+    RegistrationModelValidation registrationModelValidation = new();
+
+   
+}
